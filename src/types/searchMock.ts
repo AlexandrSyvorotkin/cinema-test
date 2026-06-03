@@ -5,8 +5,6 @@ export type CharacterSearchMock = {
   displayName: string
   role: string
   tabs: { label: string; active?: boolean; disabled?: boolean }[]
-  age?: number
-  birthShort?: string
   spouse?: string
   spouseAvatars?: string[]
   photos: {
@@ -19,13 +17,13 @@ export type CharacterSearchMock = {
     sourceShort: string
     title: string
     snippet: string
-    time: string
     image: string
   }
   instagramCard: {
     source: string
     title: string
-    time: string
+    snippet?: string
+    stats?: string
     duration: string
     image: string
   }

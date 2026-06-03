@@ -11,8 +11,6 @@ export const characterMock: SearchMock = {
     { label: 'Обзор', active: true },
     { label: 'Фильмы и сериалы', disabled: true },
   ],
-  age: 48,
-  birthShort: '12 мар. 1978 г.',
   photos: {
     main: photoPortrait,
     top: photoCircus,
@@ -24,13 +22,14 @@ export const characterMock: SearchMock = {
     title: 'Марат Булатов открыл сезон скандальным номером в цирке',
     snippet:
       'Зрители в восторге от новой программы. Премьера прошла под куполом Большого московского цирка…',
-    time: '4 дня назад',
     image: photoCircusVenue,
   },
   instagramCard: {
     source: 'Доброграм · marat.bulatov.circus',
     title: 'Репетиция перед гастролями — закулисье',
-    time: '3 недели назад',
+    snippet:
+      'Финальная отработка номера перед выездом на гастроли: акробатика, репетиционный зал и команда за кулисами. Короткий ролик из серии «дорога на манеж».',
+    stats: '1 284 просмотра · 96 отметок «Нравится»',
     duration: '0:45',
     image: '/photos/video.jpg',
   },
@@ -97,9 +96,8 @@ export const characterMock: SearchMock = {
       url: '5dney.ru › stars › bio › bulatov-marat',
       faviconColor: '#c62828',
       title: 'Марат Шамилиевич Булатов: биография, личная жизнь',
-      date: '18 февр. 2025 г.',
       snippet:
-        '18 февр. 2025 г. — Марат Шамилиевич Булатов родился в Уфе. С детства занимался акробатикой, позже поступил в цирковой институт…',
+        'Марат Шамилиевич Булатов родился в Уфе. С детства занимался акробатикой, позже поступил в цирковой институт…',
       thumbnail: photoCircus,
     },
     {

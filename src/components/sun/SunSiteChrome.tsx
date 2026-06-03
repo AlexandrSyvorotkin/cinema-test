@@ -20,7 +20,6 @@ export function SunSiteHeader() {
             - 17:00
           </p>
           <p className="sun-header__line">
-            <span className="sun-header__label">Сочи:</span>{' '}
             <a href={`tel:${SUN_PHONE_TEL}`}>{SUN_PHONE_DISPLAY}</a>
           </p>
         </div>
@@ -81,7 +80,7 @@ export function SunSiteFooter() {
           <div className="sun-footer__col">
             <p className="sun-footer__title">Контакты</p>
             <a href={`tel:${SUN_PHONE_TEL}`}>{SUN_PHONE_DISPLAY}</a>
-            <p>Сочи, ежедневно Пн–Пт 8:00–17:00</p>
+            <p>Ежедневно Пн–Пт 8:00–17:00</p>
           </div>
           <div className="sun-footer__col">
             <p className="sun-footer__title">Разделы</p>
