@@ -1,0 +1,7 @@
+.knowledge {
+  color: var(--serp-text);
+}
+
+.knowledge__serp {
+  max-width: 100%;
+}
