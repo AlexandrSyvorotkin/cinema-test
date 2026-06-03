@@ -42,46 +42,47 @@ export const characterMock: SearchMock = {
   organicResults: [
     {
       id: '1',
-      siteName: 'Цирк-Театр.Ру',
-      url: 'circus-theatre.ru › artist › bulatov',
+      pagePath: '/enskiy-vestnik',
+      siteName: 'Энский вестник',
+      url: 'enskiy-vestnik.ru › news › bulatov-tragedy',
       faviconColor: '#5c6bc0',
-      title: 'Марат Шамилиевич Булатов — артист цирка, биография',
+      title: 'Жена Марата Булатова погибла в автокатастрофе под Энском',
       snippet:
-        'Марат Шамилиевич Булатов — российский артист цирка, режиссёр-постановщик. Родился 12 марта 1978 года в Уфе. Окончил РГИЦЭИ. Участвовал в гастрольных программах…',
-      thumbnail: photoPortrait,
+        'Жена известного артиста цирка Марата Шамилиевича Булатова не выжила в ДТП.',
     },
     {
       id: '2',
+      pagePath: '/site/rupediiaya',
       siteName: 'Рупедиияя',
       url: 'ru.rupediiaya.org › wiki › Булатов,_Марат_Шамилиевич',
       faviconColor: '#9e9e9e',
       title: 'Булатов, Марат Шамилиевич — Рупедиияя',
       snippet:
         'Марат Шамилиевич Булатов — российский артист цирка и эстрады, режиссёр-постановщик номеров. Лауреат региональных премий в области циркового искусства.',
-      thumbnail: photoPortrait,
     },
     {
       id: '3',
-      siteName: 'Киноооо',
-      url: 'kinoooo.ru › name › 5128401',
+      pagePath: '/site/novosti-enska',
+      siteName: 'Новости энска',
+      url: 'novosti-enska.ru › culture › bulatov-marat',
       faviconColor: '#ff6f00',
-      title: 'Марат Шамилиевич Булатов — артист',
+      title: 'Марат Булатов открыл гастрольный сезон в Энске',
       snippet:
-        'Марат Шамилиевич Булатов. Артист цирка, ведущий программ. Участие в телевизионных цирковых шоу и спецпроектах.',
-      posters: [photoCircus, photoPortrait, photoCircus],
+        'Артист цирка Марат Шамилиевич Булатов выступил с премьерным номером на городской арене. Зрители отметили сложную акробатику и постановку режиссёра.',
     },
     {
       id: '4',
+      pagePath: '/site/kinomylo',
       siteName: 'Киномыло',
       url: 'kinomylo.ru › person › bulatov_marat',
       faviconColor: '#1565c0',
       title: 'Марат Шамилиевич Булатов — биография и карьера',
       snippet:
         'Биография, фото, программы и гастроли. Марат Шамилиевич Булатов — известный артист современного цирка.',
-      posters: [photoCircus, photoPortrait, '/photos/video.jpg'],
     },
     {
       id: '5',
+      pagePath: '/site/prostar',
       siteName: 'Простар',
       url: 'prostar.ru › people › bulatov',
       faviconColor: '#7b1fa2',
@@ -92,16 +93,17 @@ export const characterMock: SearchMock = {
     },
     {
       id: '6',
+      pagePath: '/site/5dney',
       siteName: '5дней.ру',
       url: '5dney.ru › stars › bio › bulatov-marat',
       faviconColor: '#c62828',
       title: 'Марат Шамилиевич Булатов: биография, личная жизнь',
       snippet:
         'Марат Шамилиевич Булатов родился в Уфе. С детства занимался акробатикой, позже поступил в цирковой институт…',
-      thumbnail: photoCircus,
     },
     {
       id: '7',
+      pagePath: '/site/dobrogram',
       siteName: 'Доброграм',
       url: 'dobrogram.ru › marat.bulatov.circus',
       faviconColor: '#ff8a3d',
@@ -111,6 +113,7 @@ export const characterMock: SearchMock = {
     },
     {
       id: '8',
+      pagePath: '/site/rgicei',
       siteName: 'РГИЦЭИ',
       url: 'rgicei.ru › graduates › bulatov',
       faviconColor: '#2e7d32',

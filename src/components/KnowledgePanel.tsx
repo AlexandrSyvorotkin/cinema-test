@@ -40,7 +40,7 @@ export function KnowledgePanel({ data }: KnowledgePanelProps) {
         <KnowledgeHero data={data} />
         <div className="knowledge__serp">
           <SerpQuestions questions={data.relatedQuestions} />
-          <SerpOrganic results={data.organicResults} />
+          <SerpOrganic results={data.organicResults} linkable />
           <SerpRelated items={data.relatedSearches} />
           <SerpFooter />
         </div>

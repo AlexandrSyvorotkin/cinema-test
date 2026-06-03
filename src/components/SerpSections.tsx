@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import type { OrganicResult, RelatedSearch } from '../types/serp'
 import './SerpSections.css'
 
@@ -16,41 +17,55 @@ function Stars({ value }: { value: number }) {
   )
 }
 
-function OrganicItem({ item }: { item: OrganicResult }) {
+function OrganicItem({
+  item,
+  linkTo,
+}: {
+  item: OrganicResult
+  linkTo?: string
+}) {
+  const content = (
+    <div className="serp-item__content">
+      <div className="serp-item__site">
+        <span
+          className="serp-item__favicon"
+          style={{ backgroundColor: item.faviconColor }}
+          aria-hidden="true"
+        >
+          {item.siteName.charAt(0)}
+        </span>
+        <span className="serp-item__site-name">{item.siteName}</span>
+        <span className="serp-item__url">{item.url}</span>
+      </div>
+      <h3 className="serp-item__title">
+        {linkTo ? <span>{item.title}</span> : <a href="#">{item.title}</a>}
+      </h3>
+      {item.rating && (
+        <p className="serp-item__rating">
+          <Stars value={item.rating.value} />
+          <span>{item.rating.value}</span>
+          <span className="serp-item__rating-count">
+            ({item.rating.count.toLocaleString('ru-RU')})
+          </span>
+        </p>
+      )}
+      <p className="serp-item__snippet">
+        {item.date && <span className="serp-item__date">{item.date} — </span>}
+        {item.snippet}
+      </p>
+      {item.searchHint && <p className="serp-item__hint">{item.searchHint}</p>}
+    </div>
+  )
+
   return (
     <article className="serp-item">
-      <div className="serp-item__content">
-        <div className="serp-item__site">
-          <span
-            className="serp-item__favicon"
-            style={{ backgroundColor: item.faviconColor }}
-            aria-hidden="true"
-          >
-            {item.siteName.charAt(0)}
-          </span>
-          <span className="serp-item__site-name">{item.siteName}</span>
-          <span className="serp-item__url">{item.url}</span>
-        </div>
-        <h3 className="serp-item__title">
-          <a href="#">{item.title}</a>
-        </h3>
-        {item.rating && (
-          <p className="serp-item__rating">
-            <Stars value={item.rating.value} />
-            <span>{item.rating.value}</span>
-            <span className="serp-item__rating-count">
-              ({item.rating.count.toLocaleString('ru-RU')})
-            </span>
-          </p>
-        )}
-        <p className="serp-item__snippet">
-          {item.date && <span className="serp-item__date">{item.date} — </span>}
-          {item.snippet}
-        </p>
-        {item.searchHint && (
-          <p className="serp-item__hint">{item.searchHint}</p>
-        )}
-      </div>
+      {linkTo ? (
+        <Link to={linkTo} className="serp-item__link">
+          {content}
+        </Link>
+      ) : (
+        content
+      )}
       {item.thumbnail && (
         <a href="#" className="serp-item__thumb">
           <img src={item.thumbnail} alt="" />
@@ -87,13 +102,23 @@ export function SerpQuestions({ questions }: { questions: string[] }) {
   )
 }
 
-export function SerpOrganic({ results }: { results: OrganicResult[] }) {
+export function SerpOrganic({
+  results,
+  linkable,
+}: {
+  results: OrganicResult[]
+  linkable?: boolean
+}) {
   if (results.length === 0) return null
 
   return (
     <section className="serp-organic">
       {results.map((item) => (
-        <OrganicItem key={item.id} item={item} />
+        <OrganicItem
+          key={item.id}
+          item={item}
+          linkTo={linkable ? item.pagePath : undefined}
+        />
       ))}
     </section>
   )

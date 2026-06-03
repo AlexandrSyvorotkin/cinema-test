@@ -1,0 +1,94 @@
+.ext-site {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  color: #222;
+  color-scheme: light;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.ext-header {
+  border-bottom: 1px solid #e5e5e5;
+  background: #fafafa;
+}
+
+.ext-header__bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 24px 8px;
+}
+
+.ext-header__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--ext-accent, #5c6bc0);
+  color: #fff;
+  font: 700 18px/1 Arial, sans-serif;
+}
+
+.ext-header__name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+}
+
+.ext-header__url {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px 16px;
+  font-size: 13px;
+  color: #666;
+}
+
+.ext-main {
+  flex: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 36px 24px 48px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ext-main h1 {
+  margin: 0 0 16px;
+  font-size: 28px;
+  line-height: 1.25;
+  color: #111;
+}
+
+.ext-lead {
+  margin: 0 0 28px;
+  font-size: 16px;
+  color: #444;
+}
+
+.ext-placeholder {
+  margin: 0;
+  padding: 20px 0;
+  border-top: 1px dashed #ccc;
+  color: #888;
+  font-style: italic;
+}
+
+.ext-footer {
+  padding: 16px 24px;
+  border-top: 1px solid #e5e5e5;
+  background: #f5f5f5;
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+}
+
+.ext-footer p {
+  margin: 0;
+}

@@ -102,7 +102,20 @@
   font: 400 20px/1.3 var(--sans);
 }
 
-.serp-item__title a {
+.serp-item__link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.serp-item__link:hover .serp-item__title span,
+.serp-item__link:focus-visible .serp-item__title span {
+  text-decoration: underline;
+}
+
+.serp-item__title a,
+.serp-item__title span {
   color: var(--serp-result-title);
   text-decoration: none;
 }
@@ -112,6 +125,10 @@
 }
 
 .serp-item__title a:visited {
+  color: #c58af9;
+}
+
+.serp-item__link:visited .serp-item__title span {
   color: #c58af9;
 }
 

@@ -1,5 +1,6 @@
 export type OrganicResult = {
   id: string
+  pagePath?: string
   siteName: string
   url: string
   faviconColor: string
