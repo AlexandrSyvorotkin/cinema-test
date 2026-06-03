@@ -1,6 +1,7 @@
 import type { SearchMock } from '../types/searchMock'
 import photoPortrait from '../assets/Screenshot_1.png'
 import photoCircus from '../assets/Screenshot_2.png'
+import photoGalleryStack from '../assets/Screenshot_5.png'
 import photoCircusVenue from '../assets/цирк.png'
 
 export const characterMock: SearchMock = {
@@ -14,7 +15,7 @@ export const characterMock: SearchMock = {
   photos: {
     main: photoPortrait,
     top: photoCircus,
-    bottom: photoCircus,
+    bottom: photoGalleryStack,
   },
   featuredArticle: {
     source: 'Цирковой вестник',
