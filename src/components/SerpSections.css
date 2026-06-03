@@ -162,6 +162,13 @@
   color: var(--serp-muted);
 }
 
+.serp-item__hint {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--serp-muted);
+}
+
 .serp-item__date {
   color: var(--serp-muted);
 }
@@ -263,27 +270,7 @@
 
 .serp-footer__pager {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.serp-footer__logo {
-  font: 400 32px/1 var(--sans);
-  letter-spacing: -1px;
-}
-
-.serp-footer__logo .g-blue {
-  color: #4285f4;
-}
-.serp-footer__logo .g-red {
-  color: #ea4335;
-}
-.serp-footer__logo .g-yellow {
-  color: #fbbc05;
-}
-.serp-footer__logo .g-green {
-  color: #34a853;
+  justify-content: center;
 }
 
 .serp-footer__pages {

@@ -1,10 +1,14 @@
-import { bulatovMock } from '../data/bulatovMock'
+import type { CharacterSearchMock } from '../types/searchMock'
 import './KnowledgeHero.css'
 
-export function KnowledgeHero() {
-  const data = bulatovMock
+type KnowledgeHeroProps = {
+  data: CharacterSearchMock
+}
+
+export function KnowledgeHero({ data }: KnowledgeHeroProps) {
   const article = data.featuredArticle
-  const ig = data.instagramCard
+  const social = data.instagramCard
+  const showAge = data.age !== undefined
 
   return (
     <header className="k-hero">
@@ -19,12 +23,16 @@ export function KnowledgeHero() {
           </p>
         </div>
         <div className="k-hero__tabs" role="tablist">
-          <button type="button" className="k-hero__tab k-hero__tab--active">
-            Обзор
-          </button>
-          <button type="button" className="k-hero__tab k-hero__tab--muted" disabled>
-            Фильмы и сериалы
-          </button>
+          {data.tabs.map((tab) => (
+            <button
+              key={tab.label}
+              type="button"
+              className={`k-hero__tab${tab.active ? ' k-hero__tab--active' : ''}${tab.disabled ? ' k-hero__tab--muted' : ''}`}
+              disabled={tab.disabled}
+            >
+              {tab.label}
+            </button>
+          ))}
         </div>
       </div>
 
@@ -54,38 +62,49 @@ export function KnowledgeHero() {
         </article>
 
         <div className="k-hero__side">
-          <div className="k-hero__mini k-hero__mini--age">
-            <span className="k-hero__mini-label">Возраст</span>
-            <span className="k-hero__mini-value">{data.age} лет</span>
-            <span className="k-hero__mini-sub">{data.birthShort}</span>
-          </div>
-          <div className="k-hero__mini k-hero__mini--spouse">
-            <div className="k-hero__mini-head">
-              <span className="k-hero__mini-label">Супруга</span>
-              <span className="k-hero__mini-caret" aria-hidden="true" />
+          {showAge ? (
+            <div className="k-hero__mini k-hero__mini--age">
+              <span className="k-hero__mini-label">Возраст</span>
+              <span className="k-hero__mini-value">{data.age} лет</span>
+              <span className="k-hero__mini-sub">{data.birthShort}</span>
             </div>
-            <span className="k-hero__mini-value k-hero__mini-value--sm">
-              {data.spouse}
-            </span>
-            <div className="k-hero__avatars">
-              {data.spouseAvatars.map((src) => (
-                <img key={src} src={src} alt="" />
-              ))}
-            </div>
-          </div>
+          ) : (
+            <>
+              {data.sidePrimary && (
+                <div className="k-hero__mini k-hero__mini--age">
+                  <span className="k-hero__mini-label">{data.sidePrimary.label}</span>
+                  <span className="k-hero__mini-value">{data.sidePrimary.value}</span>
+                  {data.sidePrimary.sub && (
+                    <span className="k-hero__mini-sub">{data.sidePrimary.sub}</span>
+                  )}
+                </div>
+              )}
+              {data.sideSecondary && (
+                <div className="k-hero__mini k-hero__mini--spouse">
+                  <div className="k-hero__mini-head">
+                    <span className="k-hero__mini-label">{data.sideSecondary.label}</span>
+                    <span className="k-hero__mini-caret" aria-hidden="true" />
+                  </div>
+                  <span className="k-hero__mini-value k-hero__mini-value--sm">
+                    {data.sideSecondary.value}
+                  </span>
+                </div>
+              )}
+            </>
+          )}
           <article className="k-hero__social">
             <div className="k-hero__social-text">
               <div className="k-hero__social-meta">
-                <span className="k-hero__ig-icon" aria-hidden="true" />
-                <span>{ig.source}</span>
+                <span className="k-hero__dobrogram-icon" aria-hidden="true" />
+                <span>{social.source}</span>
               </div>
-              <p className="k-hero__social-title">{ig.title}</p>
-              <time className="k-hero__article-time">{ig.time}</time>
+              <p className="k-hero__social-title">{social.title}</p>
+              <time className="k-hero__article-time">{social.time}</time>
             </div>
             <div className="k-hero__social-thumb">
-              <img src={ig.image} alt="" />
+              <img src={social.image} alt="" />
               <span className="k-hero__play" aria-hidden="true" />
-              <span className="k-hero__duration">{ig.duration}</span>
+              <span className="k-hero__duration">{social.duration}</span>
             </div>
           </article>
         </div>

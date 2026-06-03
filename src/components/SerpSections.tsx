@@ -1,5 +1,4 @@
-import { bulatovMock } from '../data/bulatovMock'
-import type { OrganicResult } from '../types/serp'
+import type { OrganicResult, RelatedSearch } from '../types/serp'
 import './SerpSections.css'
 
 function Stars({ value }: { value: number }) {
@@ -48,6 +47,9 @@ function OrganicItem({ item }: { item: OrganicResult }) {
           {item.date && <span className="serp-item__date">{item.date} — </span>}
           {item.snippet}
         </p>
+        {item.searchHint && (
+          <p className="serp-item__hint">{item.searchHint}</p>
+        )}
       </div>
       {item.thumbnail && (
         <a href="#" className="serp-item__thumb">
@@ -67,14 +69,12 @@ function OrganicItem({ item }: { item: OrganicResult }) {
   )
 }
 
-export function SerpQuestions() {
-  const data = bulatovMock
-
+export function SerpQuestions({ questions }: { questions: string[] }) {
   return (
     <section className="serp-block">
       <h2 className="serp-block__title">Вопросы по теме</h2>
       <ul className="serp-questions">
-        {data.relatedQuestions.map((q) => (
+        {questions.map((q) => (
           <li key={q}>
             <button type="button" className="serp-questions__btn">
               <span>{q}</span>
@@ -87,22 +87,24 @@ export function SerpQuestions() {
   )
 }
 
-export function SerpOrganic() {
+export function SerpOrganic({ results }: { results: OrganicResult[] }) {
+  if (results.length === 0) return null
+
   return (
     <section className="serp-organic">
-      {bulatovMock.organicResults.map((item) => (
+      {results.map((item) => (
         <OrganicItem key={item.id} item={item} />
       ))}
     </section>
   )
 }
 
-export function SerpRelated() {
+export function SerpRelated({ items }: { items: RelatedSearch[] }) {
   return (
     <section className="serp-block serp-related">
       <h2 className="serp-block__title">Другие также ищут</h2>
       <ul className="serp-related__grid">
-        {bulatovMock.relatedSearches.map((item) => (
+        {items.map((item) => (
           <li key={item.bold}>
             <a href="#" className="serp-related__chip">
               <span>
@@ -130,21 +132,6 @@ export function SerpFooter() {
         </em>
       </p>
       <div className="serp-footer__pager">
-        <div className="serp-footer__logo" aria-hidden="true">
-          <span className="g-blue">G</span>
-          <span className="g-red">o</span>
-          <span className="g-yellow">o</span>
-          <span className="g-blue">o</span>
-          <span className="g-green">o</span>
-          <span className="g-red">o</span>
-          <span className="g-yellow">o</span>
-          <span className="g-blue">o</span>
-          <span className="g-green">o</span>
-          <span className="g-red">o</span>
-          <span className="g-yellow">g</span>
-          <span className="g-blue">l</span>
-          <span className="g-green">e</span>
-        </div>
         <nav className="serp-footer__pages" aria-label="Страницы результатов">
           <span className="serp-footer__page serp-footer__page--active">1</span>
           {[2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
