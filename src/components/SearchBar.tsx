@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { Link } from 'react-router'
 import './SearchBar.css'
 
 type SearchBarProps = {
@@ -49,6 +50,11 @@ export function SearchBar({
     >
       <div className="search-row">
         <div className="search-bar">
+          {compact && (
+            <Link to="/" className="search-back">
+              Назад
+            </Link>
+          )}
           <input
             type="search"
             className="search-input"
