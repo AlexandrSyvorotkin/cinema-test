@@ -124,14 +124,6 @@
   text-decoration: underline;
 }
 
-.serp-item__title a:visited {
-  color: #c58af9;
-}
-
-.serp-item__link:visited .serp-item__title span {
-  color: #c58af9;
-}
-
 .serp-item__rating {
   display: flex;
   align-items: center;
