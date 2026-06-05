@@ -80,6 +80,13 @@ export function SunArticle() {
         <strong>понятный маршрут помощи</strong>: от первичной консультации и
         обследования до регулярной реабилитации, наблюдения и поддержки дома.
       </p>
+      <figure className="sun-article__figure">
+        <img
+          className="sun-article__photo"
+          src="/клиник.jpg"
+          alt="Детский реабилитационный центр"
+        />
+      </figure>
 
       <h2 className="sun-article__h2">Что такое ДЦП</h2>
       <p>

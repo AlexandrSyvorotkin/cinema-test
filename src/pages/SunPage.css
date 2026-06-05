@@ -46,6 +46,12 @@
   letter-spacing: 0.02em;
 }
 
+.sun-logo__text {
+  max-width: 11em;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
 .sun-logo__icon {
   width: 42px;
   height: 42px;
@@ -179,6 +185,17 @@
 .sun-article p {
   margin: 0 0 16px;
   line-height: 1.6;
+}
+
+.sun-article__figure {
+  margin: 0 0 24px;
+}
+
+.sun-article__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
 .sun-article__subhead {

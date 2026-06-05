@@ -1,6 +1,7 @@
 import {
   SUN_CLINIC_NAME,
   SUN_CLINIC_NAME_TITLE,
+  SUN_LOGO_HEADER_TEXT,
   SUN_PHONE_DISPLAY,
   SUN_PHONE_TEL,
 } from '../../data/sunSite'
@@ -11,7 +12,7 @@ export function SunSiteHeader() {
       <div className="sun-header__inner">
         <a href="#" className="sun-logo">
           <span className="sun-logo__icon" aria-hidden="true" />
-          <span className="sun-logo__text">{SUN_CLINIC_NAME}</span>
+          <span className="sun-logo__text">{SUN_LOGO_HEADER_TEXT}</span>
         </a>
 
         <div className="sun-header__info">
