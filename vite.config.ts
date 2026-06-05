@@ -12,9 +12,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['pwa-192x192.png', 'pwa-512x512.png', 'images/**/*'],
       manifest: {
-        name: 'Персонаж Марат',
-        short_name: 'Марат',
-        description: 'Интерактивный сайт персонажа — работает офлайн после первого открытия',
+        name: 'Поисковик',
+        short_name: 'Поисковик',
+        description: 'Поисковик — работает офлайн после первого открытия',
         theme_color: '#202124',
         background_color: '#202124',
         display: 'standalone',
