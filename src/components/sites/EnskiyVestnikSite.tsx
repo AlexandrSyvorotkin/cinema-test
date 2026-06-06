@@ -14,7 +14,6 @@ export function EnskiyVestnikSite({ article }: EnskiyVestnikSiteProps) {
       <header className="ev-header">
         <div className="ev-header__top">
           <span className="ev-header__edition">Газета Энска · с 1998 года</span>
-          <span className="ev-header__date">Среда, 3 июня 2026</span>
         </div>
         <div className="ev-header__brand">
           <a href="#" className="ev-logo">
@@ -54,8 +53,6 @@ export function EnskiyVestnikSite({ article }: EnskiyVestnikSiteProps) {
           <p className="ev-article__meta">
             <span className="ev-article__author">Ольга Крылова</span>
           </p>
-
-          <p className="ev-article__lead">{article.snippet}</p>
 
           <div className="ev-article__body">
             <p>

@@ -292,6 +292,9 @@
   top: 50%;
   left: 50%;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 44px;
   height: 44px;
   margin: -22px 0 0 -22px;
@@ -302,11 +305,11 @@
 
 .k-hero__play::after {
   content: '';
-  position: absolute;
-  top: 50%;
-  left: 54%;
-  transform: translate(-50%, -50%);
-  border: 8px solid transparent;
+  width: 0;
+  height: 0;
+  margin-left: 3px;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
   border-left: 13px solid #fff;
 }
 

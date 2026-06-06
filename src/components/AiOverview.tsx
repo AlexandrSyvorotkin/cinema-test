@@ -7,11 +7,11 @@ type AiOverviewProps = {
 
 export function AiOverview({ data }: AiOverviewProps) {
   return (
-    <section className="ai-overview" aria-label="Обзор от ИИ">
+    <section className="ai-overview" aria-label="Раневая инфекция">
       <div className="ai-overview__main">
         <div className="ai-overview__head">
           <span className="ai-overview__icon" aria-hidden="true" />
-          <h2 className="ai-overview__title">Обзор от ИИ</h2>
+          <h2 className="ai-overview__title">Раневая инфекция</h2>
         </div>
 
         {data.paragraphs.map((text) => (

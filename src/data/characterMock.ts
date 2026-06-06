@@ -1,6 +1,6 @@
 import type { SearchMock } from '../types/searchMock'
-import photoPortrait from '../assets/фото1.png'
-import photoCircus from '../assets/Screenshot_2.png'
+import photoPortrait from '../assets/Screenshot_6.png'
+import photoCircus from '../assets/Screenshot_1.png'
 import photoGalleryStack from '../assets/дсп.png'
 import photoCircusVenue from '../assets/фото2.png'
 
@@ -47,7 +47,7 @@ export const characterMock: SearchMock = {
       siteName: 'Энский вестник',
       url: 'enskiy-vestnik.ru › news › bulatov-tragedy',
       faviconColor: '#5c6bc0',
-      title: 'Жена Марата Булатова погибла в автокатастрофе под Энском',
+      title: 'Страшная трагедия на дороге',
       snippet:
         'Жена известного артиста цирка Марата Шамилиевича Булатова не выжила в ДТП.',
     },
