@@ -1,4 +1,7 @@
 import photoAccident from '../../assets/Screenshot_3.png'
+import photoWife1 from '../../assets/new-fotos/фотожен1.jpg'
+import photoWife2 from '../../assets/new-fotos/фотожен2.jpg'
+import photoWife3 from '../../assets/new-fotos/фотожен3.jpg'
 import type { OrganicResult } from '../../types/serp'
 import './EnskiyVestnikSite.css'
 
@@ -49,6 +52,30 @@ export function EnskiyVestnikSite({ article }: EnskiyVestnikSiteProps) {
           </div>
 
           <h1 className="ev-article__title">{article.title}</h1>
+
+          <div className="ev-article__gallery" aria-label="Фотографии погибшей">
+            <figure className="ev-article__gallery-item ev-article__gallery-item--portrait">
+              <img
+                src={photoWife1}
+                alt="Воздушная гимнастка на полотнах в цирковом манеже"
+                loading="eager"
+              />
+            </figure>
+            <figure className="ev-article__gallery-item ev-article__gallery-item--square">
+              <img
+                src={photoWife3}
+                alt="Артистка на воздушном кольце под куполом цирка"
+                loading="eager"
+              />
+            </figure>
+            <figure className="ev-article__gallery-item ev-article__gallery-item--landscape">
+              <img
+                src={photoWife2}
+                alt="Артистка в гримёрной перед зеркалом с лампочками"
+                loading="eager"
+              />
+            </figure>
+          </div>
 
           <p className="ev-article__meta">
             <span className="ev-article__author">Ольга Крылова</span>
