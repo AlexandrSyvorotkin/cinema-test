@@ -1,11 +1,31 @@
 .results-page {
+  --results-bg: #ffffff;
+  --results-text: #202124;
+  --results-header-bg: #ffffff;
+  --results-header-border: #ebebeb;
+  --serp-heading: #202124;
+  --serp-text: #4d5156;
+  --serp-muted: #70757a;
+  --serp-link: #1a0dab;
+  --serp-result-title: #1a0dab;
+  --serp-chip-bg: #f1f3f4;
+  --serp-chip-hover: #e8eaed;
+  --serp-card: #f8f9fa;
+  --serp-card-hover: #f1f3f4;
+  --serp-divider: #ebebeb;
+  --serp-tab-bg: #e8eaed;
+  --serp-tab-active: #fce8e6;
+  --serp-panel-card: #f8f9fa;
+  --serp-panel-tab: #f1f3f4;
+
   flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 0;
+  min-height: 100svh;
   width: 100%;
   background: var(--results-bg);
   color: var(--results-text);
+  color-scheme: light;
 }
 
 .results-header {
@@ -15,6 +35,60 @@
   padding: 16px 24px;
   background: var(--results-header-bg);
   border-bottom: 1px solid var(--results-header-border);
+}
+
+.results-page .search-bar {
+  border-color: #dadce0;
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.12);
+}
+
+.results-page .search-bar:hover {
+  border-color: #bdc1c6;
+  box-shadow: 0 2px 8px rgba(32, 33, 36, 0.16);
+}
+
+.results-page .search-bar:focus-within {
+  border-color: #8ab4f8;
+  box-shadow: 0 2px 8px rgba(32, 33, 36, 0.16);
+}
+
+.results-page .search-submit {
+  background: #f8f9fa;
+  border-color: #dadce0;
+  color: #3c4043;
+  box-shadow: 0 1px 4px rgba(32, 33, 36, 0.08);
+}
+
+.results-page .search-submit:hover {
+  background: #f1f3f4;
+  border-color: #bdc1c6;
+  box-shadow: 0 2px 6px rgba(32, 33, 36, 0.12);
+}
+
+.results-page .search-submit:active {
+  background: #e8eaed;
+}
+
+.results-page .k-hero__tab--active {
+  border-color: #dadce0;
+}
+
+.results-page .ai-overview {
+  background: #f8f9fa;
+  border-color: #dadce0;
+}
+
+.results-page .ai-overview__expand {
+  border-color: #dadce0;
+}
+
+.results-page .ai-overview__expand:hover {
+  background: #f1f3f4;
+}
+
+.results-page .ai-overview__source-card {
+  background: #ffffff;
+  border: 1px solid #ebebeb;
 }
 
 .results-main {
