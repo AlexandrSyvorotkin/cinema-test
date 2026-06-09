@@ -118,34 +118,40 @@ function OrganicItem({
   )
 }
 
-function SerpImagePackItem({ pack }: { pack: SerpImagePack }) {
+function SerpImagePackItems({ pack }: { pack: SerpImagePack }) {
   return (
-    <article className="serp-item serp-item--image-pack">
-      <div className="serp-item__content">
-        <div className="serp-item__site">
-          <span
-            className="serp-item__favicon"
-            style={{ backgroundColor: pack.faviconColor }}
-            aria-hidden="true"
-          >
-            {pack.siteName.charAt(0)}
-          </span>
-          <span className="serp-item__site-name">{pack.siteName}</span>
-          <span className="serp-item__url">{pack.url}</span>
-        </div>
-        <h3 className="serp-item__title">
-          <a href="#">{pack.title}</a>
-        </h3>
-        <p className="serp-item__snippet">{pack.snippet}</p>
-        <div className="serp-image-pack">
-          {pack.images.map((src) => (
-            <a key={src} href="#" className="serp-image-pack__thumb">
-              <img src={src} alt="" loading="lazy" />
-            </a>
-          ))}
-        </div>
-      </div>
-    </article>
+    <>
+      {pack.items.map((item) => (
+        <article key={item.id} className="serp-item serp-item--image-pack">
+          <div className="serp-item__content">
+            <div className="serp-item__site">
+              <span
+                className="serp-item__favicon"
+                style={{ backgroundColor: pack.faviconColor }}
+                aria-hidden="true"
+              >
+                {pack.siteName.charAt(0)}
+              </span>
+              <span className="serp-item__site-name">{pack.siteName}</span>
+              <span className="serp-item__url">{item.url}</span>
+            </div>
+            <h3 className="serp-item__title">
+              <a href="#">{item.title}</a>
+            </h3>
+            <p className="serp-item__snippet">{item.snippet}</p>
+            <div
+              className={`serp-image-pack${item.images.length === 2 ? ' serp-image-pack--two' : ''}`}
+            >
+              {item.images.map((src) => (
+                <a key={src} href="#" className="serp-image-pack__thumb">
+                  <img src={src} alt="" loading="lazy" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </>
   )
 }
 
@@ -180,7 +186,7 @@ export function SerpOrganic({
 
   return (
     <section className="serp-organic">
-      {imagePack && <SerpImagePackItem pack={imagePack} />}
+      {imagePack && <SerpImagePackItems pack={imagePack} />}
       {results.map((item) => (
         <OrganicItem
           key={item.id}

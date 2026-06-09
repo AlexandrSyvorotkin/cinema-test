@@ -1,12 +1,17 @@
 import type { OrganicResult, RelatedSearch } from './serp'
 
-export type SerpImagePack = {
-  siteName: string
-  url: string
-  faviconColor: string
+export type SerpImagePackItem = {
+  id: string
   title: string
   snippet: string
+  url: string
   images: string[]
+}
+
+export type SerpImagePack = {
+  siteName: string
+  faviconColor: string
+  items: SerpImagePackItem[]
 }
 
 export type CharacterSearchMock = {

@@ -1,11 +1,15 @@
 import type { SearchMock } from '../types/searchMock'
-import photoPoster1 from '../assets/new-fotos/афиша1.jpg'
+import afishPhoto1 from '../assets/afish/photo_2026-06-09_11-47-11.jpg'
+import afishPhoto2 from '../assets/afish/photo_2026-06-09_11-47-12.jpg'
+import afishPhoto3 from '../assets/afish/photo_2026-06-09_11-47-12 (2).jpg'
+import afishPhoto4 from '../assets/afish/photo_2026-06-09_11-47-13.jpg'
+import afishPhoto5 from '../assets/afish/photo_2026-06-09_11-47-13 (2).jpg'
+import afishPhoto6 from '../assets/afish/photo_2026-06-09_11-47-13 (3).jpg'
+import afishPhoto7 from '../assets/afish/photo_2026-06-09_11-47-14.jpg'
+import afishPhoto8 from '../assets/afish/photo_2026-06-09_11-47-14 (2).jpg'
 import photoPoster from '../assets/new-fotos/афиша2.jpg'
 import photoPosterStack from '../assets/new-fotos/афиша3.jpg'
-import photoPoster4 from '../assets/new-fotos/афиша4.jpg'
-import photoPoster5 from '../assets/new-fotos/афиша5.jpg'
 import videoPerformance from '../assets/вид1.mp4'
-import photoGalleryStack from '../assets/дсп.png'
 import photoCircusVenue from '../assets/фото2.png'
 
 export const characterMock: SearchMock = {
@@ -19,7 +23,7 @@ export const characterMock: SearchMock = {
   photos: {
     main: photoPoster,
     top: photoPosterStack,
-    bottom: photoGalleryStack,
+    bottom: afishPhoto4,
   },
   featuredArticle: {
     source: 'Цирковой вестник',
@@ -46,12 +50,33 @@ export const characterMock: SearchMock = {
   ],
   imagePack: {
     siteName: 'Афиша.ру',
-    url: 'afisha.ru › circus › bulatov-moscow',
     faviconColor: '#e65100',
-    title: 'Марат Булатов — афиши цирковых программ и гастролей',
-    snippet:
-      'Афиши выступлений, даты премьер и анонсы сезона. Билеты на шоу с участием артиста в Москве и на гастролях.',
-    images: [photoPoster1, photoPoster4, photoPoster5],
+    items: [
+      {
+        id: 'afisha-moscow',
+        title: 'Марат Булатов — афиши цирковых программ в Москве',
+        snippet:
+          'Грандиозное шоу, смертельный акт и ножебросание мистера Икса. Даты премьер и билеты на представления в столице.',
+        url: 'afisha.ru › circus › bulatov-moscow',
+        images: [afishPhoto2, afishPhoto6, afishPhoto7],
+      },
+      {
+        id: 'afisha-mr-x',
+        title: 'Мистер Икс — ножебросательное шоу с участием Булатова',
+        snippet:
+          'Афиши международных гастролей: Cirkus der Wunder, Grand Circus Spectacle и Circus Arcanum.',
+        url: 'afisha.ru › circus › mr-x-shows',
+        images: [afishPhoto1, afishPhoto3, afishPhoto5],
+      },
+      {
+        id: 'afisha-retro',
+        title: 'Ретро-афиши и анонсы сезона — Марат Булатов',
+        snippet:
+          'Винтажные постеры цирковых номеров, ночные представления и классическое ножебросание.',
+        url: 'afisha.ru › circus › bulatov-posters',
+        images: [afishPhoto4, afishPhoto8],
+      },
+    ],
   },
   organicResults: [
     {
