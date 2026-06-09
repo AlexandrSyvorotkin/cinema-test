@@ -9,6 +9,7 @@ export type OrganicResult = {
   snippet: string
   searchHint?: string
   thumbnail?: string
+  video?: string
   posters?: string[]
   rating?: { value: number; count: number }
 }

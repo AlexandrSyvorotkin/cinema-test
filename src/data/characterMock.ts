@@ -1,6 +1,10 @@
 import type { SearchMock } from '../types/searchMock'
-import photoPortrait from '../assets/Screenshot_6.png'
-import photoCircus from '../assets/Screenshot_1.png'
+import photoPoster1 from '../assets/new-fotos/афиша1.jpg'
+import photoPoster from '../assets/new-fotos/афиша2.jpg'
+import photoPosterStack from '../assets/new-fotos/афиша3.jpg'
+import photoPoster4 from '../assets/new-fotos/афиша4.jpg'
+import photoPoster5 from '../assets/new-fotos/афиша5.jpg'
+import videoPerformance from '../assets/вид1.mp4'
 import photoGalleryStack from '../assets/дсп.png'
 import photoCircusVenue from '../assets/фото2.png'
 
@@ -13,8 +17,8 @@ export const characterMock: SearchMock = {
     { label: 'Фильмы и сериалы', disabled: true },
   ],
   photos: {
-    main: photoPortrait,
-    top: photoCircus,
+    main: photoPoster,
+    top: photoPosterStack,
     bottom: photoGalleryStack,
   },
   featuredArticle: {
@@ -40,6 +44,15 @@ export const characterMock: SearchMock = {
     'Сколько лет Булатов работает в цирке?',
     'Был ли Булатов на гастролях за рубежом?',
   ],
+  imagePack: {
+    siteName: 'Афиша.ру',
+    url: 'afisha.ru › circus › bulatov-moscow',
+    faviconColor: '#e65100',
+    title: 'Марат Булатов — афиши цирковых программ и гастролей',
+    snippet:
+      'Афиши выступлений, даты премьер и анонсы сезона. Билеты на шоу с участием артиста в Москве и на гастролях.',
+    images: [photoPoster1, photoPoster4, photoPoster5],
+  },
   organicResults: [
     {
       id: '1',
@@ -57,9 +70,10 @@ export const characterMock: SearchMock = {
       siteName: 'Рупедиияя',
       url: 'ru.rupediiaya.org › wiki › Булатов,_Марат_Шамилиевич',
       faviconColor: '#9e9e9e',
-      title: 'Булатов, Марат Шамилиевич — Рупедиияя',
+      title: 'выступление марата шамильевича - видео',
       snippet:
         'Марат Шамилиевич Булатов — российский артист цирка и эстрады, режиссёр-постановщик номеров. Лауреат региональных премий в области циркового искусства.',
+      video: videoPerformance,
     },
     {
       id: '3',

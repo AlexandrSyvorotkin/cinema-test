@@ -39,8 +39,11 @@ export function KnowledgePanel({ data }: KnowledgePanelProps) {
       <div className="knowledge">
         <KnowledgeHero data={data} />
         <div className="knowledge__serp">
-          <SerpQuestions questions={data.relatedQuestions} />
-          <SerpOrganic results={data.organicResults} linkable />
+          <SerpOrganic
+            results={data.organicResults}
+            linkable
+            imagePack={data.imagePack}
+          />
           <SerpRelated items={data.relatedSearches} />
           <SerpFooter />
         </div>

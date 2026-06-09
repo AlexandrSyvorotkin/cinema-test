@@ -1,6 +1,39 @@
+import { useRef, useState } from 'react'
 import { Link } from 'react-router'
+import type { SerpImagePack } from '../types/searchMock'
 import type { OrganicResult, RelatedSearch } from '../types/serp'
 import './SerpSections.css'
+
+function SerpItemVideo({ src }: { src: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [playing, setPlaying] = useState(false)
+
+  const playVideo = () => {
+    const video = videoRef.current
+    if (!video) return
+    video.controls = true
+    void video.play()
+  }
+
+  return (
+    <button
+      type="button"
+      className="serp-item__video"
+      onClick={playVideo}
+      aria-label="Смотреть видео"
+    >
+      <video
+        ref={videoRef}
+        src={src}
+        preload="metadata"
+        playsInline
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
+      />
+      {!playing && <span className="serp-item__video-play" aria-hidden="true" />}
+    </button>
+  )
+}
 
 function Stars({ value }: { value: number }) {
   const full = Math.floor(value)
@@ -58,7 +91,7 @@ function OrganicItem({
   )
 
   return (
-    <article className="serp-item">
+    <article className={`serp-item${item.video ? ' serp-item--has-video' : ''}`}>
       {linkTo ? (
         <Link to={linkTo} className="serp-item__link">
           {content}
@@ -66,6 +99,7 @@ function OrganicItem({
       ) : (
         content
       )}
+      {item.video && <SerpItemVideo src={item.video} />}
       {item.thumbnail && (
         <a href="#" className="serp-item__thumb">
           <img src={item.thumbnail} alt="" />
@@ -80,6 +114,37 @@ function OrganicItem({
           ))}
         </div>
       )}
+    </article>
+  )
+}
+
+function SerpImagePackItem({ pack }: { pack: SerpImagePack }) {
+  return (
+    <article className="serp-item serp-item--image-pack">
+      <div className="serp-item__content">
+        <div className="serp-item__site">
+          <span
+            className="serp-item__favicon"
+            style={{ backgroundColor: pack.faviconColor }}
+            aria-hidden="true"
+          >
+            {pack.siteName.charAt(0)}
+          </span>
+          <span className="serp-item__site-name">{pack.siteName}</span>
+          <span className="serp-item__url">{pack.url}</span>
+        </div>
+        <h3 className="serp-item__title">
+          <a href="#">{pack.title}</a>
+        </h3>
+        <p className="serp-item__snippet">{pack.snippet}</p>
+        <div className="serp-image-pack">
+          {pack.images.map((src) => (
+            <a key={src} href="#" className="serp-image-pack__thumb">
+              <img src={src} alt="" loading="lazy" />
+            </a>
+          ))}
+        </div>
+      </div>
     </article>
   )
 }
@@ -105,14 +170,17 @@ export function SerpQuestions({ questions }: { questions: string[] }) {
 export function SerpOrganic({
   results,
   linkable,
+  imagePack,
 }: {
   results: OrganicResult[]
   linkable?: boolean
+  imagePack?: SerpImagePack
 }) {
-  if (results.length === 0) return null
+  if (results.length === 0 && !imagePack) return null
 
   return (
     <section className="serp-organic">
+      {imagePack && <SerpImagePackItem pack={imagePack} />}
       {results.map((item) => (
         <OrganicItem
           key={item.id}

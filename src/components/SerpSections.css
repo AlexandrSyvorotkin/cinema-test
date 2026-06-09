@@ -12,7 +12,38 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  max-width: 652px;
   border-top: 1px solid var(--serp-divider);
+}
+
+.serp-item--image-pack {
+  display: block;
+}
+
+.serp-image-pack {
+  display: flex;
+  gap: 4px;
+  margin-top: 12px;
+}
+
+.serp-image-pack__thumb {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--serp-chip-bg);
+}
+
+.serp-image-pack__thumb img {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  object-position: center;
 }
 
 .serp-questions__btn {
@@ -178,6 +209,60 @@
   color: var(--serp-muted);
 }
 
+.serp-item--has-video {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.serp-item__video {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  margin-top: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  cursor: pointer;
+}
+
+.serp-item__video video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  vertical-align: top;
+}
+
+.serp-item__video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin: -26px 0 0 -26px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.62);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.serp-item__video-play::after {
+  content: '';
+  width: 0;
+  height: 0;
+  margin-left: 3px;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 15px solid #fff;
+}
+
 .serp-item__date {
   color: var(--serp-muted);
 }
@@ -324,6 +409,20 @@
 @media (max-width: 640px) {
   .serp-related__grid {
     grid-template-columns: 1fr;
+  }
+
+  .serp-image-pack {
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+
+  .serp-image-pack__thumb {
+    flex: 0 0 120px;
+    min-height: 200px;
+  }
+
+  .serp-image-pack__thumb img {
+    height: 200px;
   }
 
   .serp-item {

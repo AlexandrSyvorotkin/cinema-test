@@ -75,6 +75,15 @@
   align-items: stretch;
 }
 
+/* Временно: без боковой колонки — галерея занимает больше ширины */
+.k-hero__grid--no-side {
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+}
+
+.k-hero__grid--no-side .k-hero__gallery {
+  grid-template-columns: 1.7fr 0.32fr;
+}
+
 .k-hero__gallery {
   display: grid;
   grid-template-columns: 1fr 0.52fr;
