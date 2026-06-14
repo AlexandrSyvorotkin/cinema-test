@@ -1,3 +1,4 @@
+import { Link, useLocation } from 'react-router'
 import {
   SUN_CLINIC_NAME,
   SUN_CLINIC_NAME_TITLE,
@@ -10,10 +11,10 @@ export function SunSiteHeader() {
   return (
     <header className="sun-header">
       <div className="sun-header__inner">
-        <a href="#" className="sun-logo">
+        <Link to="/sun" className="sun-logo">
           <span className="sun-logo__icon" aria-hidden="true" />
           <span className="sun-logo__text">{SUN_LOGO_HEADER_TEXT}</span>
-        </a>
+        </Link>
 
         <div className="sun-header__info">
           <p className="sun-header__line">
@@ -40,24 +41,39 @@ export function SunSiteHeader() {
 }
 
 export function SunSiteNav() {
+  const { pathname } = useLocation()
+
   const items = [
-    'ГЛАВНАЯ',
-    'О КЛИНИКЕ',
-    'ОТДЕЛЕНИЯ',
-    'СПЕЦИАЛИСТЫ',
-    'УСЛУГИ',
-    'ДИАГНОЗЫ',
-    'КОНТАКТЫ',
-    'АКЦИИ',
-    'ФИЛИАЛЫ',
+    { label: 'ГЛАВНАЯ', path: '/sun' },
+    { label: 'О КЛИНИКЕ' },
+    { label: 'ОТДЕЛЕНИЯ' },
+    { label: 'СПЕЦИАЛИСТЫ' },
+    { label: 'УСЛУГИ', path: '/sun/services' },
+    { label: 'ДИАГНОЗЫ' },
+    { label: 'КОНТАКТЫ' },
+    { label: 'АКЦИИ' },
+    { label: 'ФИЛИАЛЫ' },
   ]
 
   return (
     <nav className="sun-nav" aria-label="Основное меню">
       <ul className="sun-nav__list">
         {items.map((item) => (
-          <li key={item}>
-            <a href="#">{item}</a>
+          <li key={item.label}>
+            {item.path ? (
+              <Link
+                to={item.path}
+                className={
+                  pathname === item.path ? 'sun-nav__link sun-nav__link--active' : 'sun-nav__link'
+                }
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <a href="#" className="sun-nav__link">
+                {item.label}
+              </a>
+            )}
           </li>
         ))}
       </ul>
@@ -92,7 +108,7 @@ export function SunSiteFooter() {
           </div>
           <div className="sun-footer__col">
             <p className="sun-footer__title">Пациентам</p>
-            <a href="#">Запись на приём</a>
+            <Link to="/sun/services">Услуги и цены</Link>
             <a href="#">Акции</a>
             <a href="#">Политика конфиденциальности</a>
           </div>

@@ -5,6 +5,7 @@ import { HomePage } from './pages/HomePage'
 import { ResultsPage } from './pages/ResultsPage'
 import { CharacterSitePage } from './pages/CharacterSitePage'
 import { SunPage } from './pages/SunPage'
+import { SunServicesPage } from './pages/SunServicesPage'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/site/:slug" element={<CharacterSitePage />} />
           <Route path="/illness" element={<ResultsPage mode="illness" />} />
           <Route path="/sun" element={<SunPage />} />
+          <Route path="/sun/services" element={<SunServicesPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <ResponseModeSelector />
